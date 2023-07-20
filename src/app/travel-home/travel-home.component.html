@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col  d-flex justify-content-center">
+        <div class="font-text mt-5  ">
+            <h1>เที่ยวไหนดี</h1>
+        </div>
+    </div>
+    <!-- <div class="alert alert-danger d-flex align-items-center " role="alert" *ngIf="showAlert">
+        <div>
+            {{MessageAlert}}
+        </div>
+    </div> -->
+</div>
+<div class="container">
+    <form [formGroup]="searchForm" #formDirective="ngForm">
+        <div class="row mt-3 mb-5 d-flex justify-content-center">
+            <div class="col-lg-6">
+                <input class="form-control mb-4" id="SearchInput" type="text" placeholder="หาที่เที่ยวแล้วไปกัน....."
+                    formControlName="textSearch" (input)="seachTripsData()">
+            </div>
+        </div>
+        <ng-container *ngIf="searchResult.length > 0; else noSearchResults">
+            <div *ngFor="let trip of searchResult">
+                <div class="row mt-5 mb-5 d-flex justify-content-center">
+                    <div class="col-lg-3 col-md-4">
+                        <img [src]="trip.photos[0]" class="TripsPhotos mb-5">
+                    </div>
+                    <div class="col-lg-8 col-md-8 textTitle">
+                        <a id="title" [href]="trip.url">{{trip.title}}</a>
+                        <p class="Textdescription">
+                            {{ showFullDescription ? trip.description : (trip.description | slice:0:150) + '...' }}
+                            <a class="read-more" (click)="toggleDescription()">
+                                {{ showFullDescription ? 'อ่านน้อยลง' : 'อ่านต่อ' }}
+                            </a>
+                        </p>
+                        <span>{{trip.title}}</span>
+                        <a class="ms-3" [href]="trip.url" target="_blank">อ่านต่อ</a>
+                        <p class="mt-3 category">
+                            <span>หมวด :
+                                <a [href]="trip.url"> {{trip.tags}} </a>
+                            </span>
+                        </p>
+                        <div class="col photosTrips">
+                            <img [src]="trip.photos[1]" class="TripsPhotos me-3">
+                            <img [src]="trip.photos[2]" class="TripsPhotos me-3">
+                            <img [src]="trip.photos[3]" class="TripsPhotos me-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #noSearchResults>
+            <div *ngFor="let trip of tripsData">
+                <div class="row mt-5 mb-5 d-flex justify-content-center">
+                    <div class="col-lg-3 col-md-4">
+                        <img [src]="trip.photos[0]" class="TripsPhotos mb-5">
+                    </div>
+                    <div class="col-lg-8 col-md-8 textTitle">
+                        <a id="title" [href]="trip.url">{{trip.title}}</a>
+                        <p class="Textdescription">
+                            {{ showFullDescription ? trip.description : (trip.description | slice:0:150) + '...' }}
+                            <a class="read-more" (click)="toggleDescription()">
+                                {{ showFullDescription ? 'อ่านน้อยลง' : 'อ่านต่อ' }}
+                            </a>
+                        </p>
+                        <span>{{trip.title}}</span>
+                        <a class="ms-3" [href]="trip.url" target="_blank">อ่านต่อ</a>
+                        <p class="mt-3 category">
+                            <span>หมวด :
+                                <a [href]="trip.url"> {{trip.tags}} </a>
+                            </span>
+                        </p>
+                        <div class="col photosTrips">
+                            <img [src]="trip.photos[1]" class="TripsPhotos me-3">
+                            <img [src]="trip.photos[2]" class="TripsPhotos me-3">
+                            <img [src]="trip.photos[3]" class="TripsPhotos me-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </form>
+</div>

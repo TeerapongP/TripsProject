@@ -1,0 +1,66 @@
+.font-text>h1 {
+
+    color: #2e9cdb;
+    font-size: 5rem;
+}
+
+.TripsPhotos {
+    width: 15rem;
+    height: 20rem;
+    max-width: 100%;
+    border-radius: 1rem;
+}
+
+#SearchInput {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.textTitle>#title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+.Textdescription {
+    color: #8a8a8a;
+}
+
+.Textdescription>a {
+    color: #48a9e0;
+}
+
+.textTitle>span {
+    color: #8a8a8a;
+}
+
+.textTitle>a {
+
+    color: #48a9e0;
+}
+
+.textTitle>#description {
+    font-size: 1rem;
+}
+
+.photosTrips>img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 1.3rem;
+}
+
+.category>span>a {
+    color: #8a8a8a;
+}
+.alert{
+    width: 25rem;
+    height: 5rem;
+    margin-top: 1.2rem;
+    position: absolute;
+    margin-left: 90rem;
+}
