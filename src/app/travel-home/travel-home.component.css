@@ -11,6 +11,13 @@
     border-radius: 1rem;
 }
 
+@media only screen and (max-width: 600px) {
+    *{
+        text-align: center;
+        margin-top: 1rem;
+    }
+}
+
 #SearchInput {
     border-top: none;
     border-left: none;
@@ -57,7 +64,8 @@
 .category>span>a {
     color: #8a8a8a;
 }
-.alert{
+
+.alert {
     width: 25rem;
     height: 5rem;
     margin-top: 1.2rem;
