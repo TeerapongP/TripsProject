@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { TravelHomeComponent } from './travel-home/travel-home.component';
-// import { IndexComponent } from './index/index.component';
-// import { CheckoutComComponent } from './checkout-com/checkout-com.component';
+import { IndexComponent } from './index/index.component';
+import { CheckoutComComponent } from './checkout-com/checkout-com.component';
 
 
 const routes: Routes = [

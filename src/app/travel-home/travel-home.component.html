@@ -4,11 +4,6 @@
             <h1>เที่ยวไหนดี</h1>
         </div>
     </div>
-    <!-- <div class="alert alert-danger d-flex align-items-center " role="alert" *ngIf="showAlert">
-        <div>
-            {{MessageAlert}}
-        </div>
-    </div> -->
 </div>
 <div class="container">
     <form [formGroup]="searchForm" #formDirective="ngForm">
@@ -21,8 +16,8 @@
         <ng-container *ngIf="searchResult.length > 0; else noSearchResults">
             <div *ngFor="let trip of searchResult">
                 <div class="row mt-5 mb-5 d-flex justify-content-center">
-                    <div class="col-lg-3 col-md-4 ">
-                        <img [src]="trip.photos[0]" class="TripsPhotos mb-5 ">
+                    <div class="col-lg-3 col-md-4">
+                        <img [src]="trip.photos[0]" class="TripsPhotos mb-5">
                     </div>
                     <div class="col-lg-8 col-md-8 textTitle">
                         <a id="title" [href]="trip.url">{{trip.title}}</a>
@@ -39,10 +34,9 @@
                                 <a [href]="trip.url"> {{trip.tags}} </a>
                             </span>
                         </p>
-                        <div class="col photosTrips">
-                            <img [src]="trip.photos[1]" class="TripsPhotos me-3">
-                            <img [src]="trip.photos[2]" class="TripsPhotos me-3">
-                            <img [src]="trip.photos[3]" class="TripsPhotos me-3">
+
+                        <div class="col-lg-3 col-md-4">
+                            <img *ngFor="let photo of trip.photos;" [src]="photo" class="TripsPhotos me-3">
                         </div>
                     </div>
                 </div>
@@ -70,9 +64,8 @@
                             </span>
                         </p>
                         <div class="col photosTrips">
-                            <img [src]="trip.photos[1]" class="TripsPhotos me-3">
-                            <img [src]="trip.photos[2]" class="TripsPhotos me-3">
-                            <img [src]="trip.photos[3]" class="TripsPhotos me-3">
+                            <img *ngFor="let photo of trip.photos; let i = index" [src]="photo"
+                                class="TripsPhotos me-3">
                         </div>
                     </div>
                 </div>
