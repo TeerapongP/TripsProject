@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ServiceService } from './service/service.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { switchMap, debounceTime, catchError, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Subject, Subscription, of } from 'rxjs';
 
 
 @Component({
@@ -14,20 +14,19 @@ export class TravelHomeComponent implements OnInit {
 
   searchForm!: FormGroup;
   searchResult: any[] = [];
+  onSearchTrips = new Subject<string>();
+
+  subscription?: Subscription;
   tripsData: any[] = [];
   showAlert = false;
-  onSeachTrips: Subject<any> = new Subject<any>();
-  private destroy$ = new Subject<void>();
-  errorMessage: string = "";
-  // MessageAlert: string = 'ห้ามใส่อักษรพิเศษ เช่น !@#$%^*()_+[]{};:\\"\\|,.<>/?~';
+
   constructor(
     private tripsService: ServiceService,
     private fb: FormBuilder) {
     this.createForm();
     this.getTripsData();
-    this.seachTripsData();
+    this.searchTripsDataRes();
   }
-
   ngOnInit() {
 
   }
@@ -35,42 +34,52 @@ export class TravelHomeComponent implements OnInit {
   toggleDescription() {
     this.showFullDescription = !this.showFullDescription;
   }
+
+
   createForm() {
     this.searchForm = this.fb.group({
-      textSearch: ['', { keyword: '' }]
+      textSearch: ['']
     });
   }
+
+
   getTripsData() {
     this.tripsService.getTripsData().subscribe(res => {
       this.tripsData = res.trips;
     })
   }
 
+  searchTripsDataRes() {
+    this.onSearchTrips.pipe(
+      debounceTime(400),
+      switchMap((searchValue: string) => {
+        return this.tripsService.SearchTripsData(searchValue).pipe(
+          catchError(error => {
+            console.error('Error occurred during search:', error);
+            return [];
+          })
+        );
+      })
+    ).subscribe(
+      (res) => {
+        this.searchResult = res;
+      }
+    );
+  }
   seachTripsData() {
     const searchValue = this.searchForm.get('textSearch')?.value;
-    if (searchValue !== null && searchValue !== "") {
-      this.onSeachTrips.next(searchValue);
-      this.onSeachTrips.pipe(
-        debounceTime(500),
-        switchMap((searchValue) => {
-          const json = { keyword: searchValue };
-          // console.log("JSON : ", json)
-          return this.tripsService.SearchTripsData(json);
-        })
-      ).subscribe(
-        (res) => {
-          this.searchResult = res;
-        },
-      );
+    if (null != searchValue && "" !== searchValue) {
+      this.onSearchTrips.next(searchValue);
     } else {
       this.getTripsData();
     }
   }
-
-  ngOnDestroy() {
-    // Unsubscribe from the observable to avoid memory leaks
-    this.destroy$.next();
-    this.destroy$.complete();
+  postData() {
+    const data = { key: 'value' };
+    this.tripsService.postData(data).subscribe(response => {
+      console.log(response);
+    });
   }
+
 }
 
