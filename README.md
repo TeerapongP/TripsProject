@@ -1,4 +1,4 @@
-# Frontend Assignment
+![design](https://github.com/TeerapongP/TripsProject/assets/56886497/01e4987e-92f8-4fb8-ab8f-c57ba9e90fd2)# Frontend Assignment
 
 This is an assignment for Software Engineer, Frontend candidate. The candidate should keep in mind about the following 3 rules below during the period of completing assignment, because we believe that software development is not only finished by completing all requirements, but it should be good for user and the best for long term maintenance in the future.
 
@@ -160,3 +160,7 @@ For the displaying of trip data, the minimum requirements that you have to compl
 ## Period of completion
 
 In fact, this assignment can be completed within 1 - 2 days. By the way, we give the candidate 10 days to complete this assignment which started from the date you receive this assignment.
+
+
+![design](https://github.com/TeerapongP/TripsProject/assets/56886497/e2bf6128-1746-474c-a559-200e6dae8ebb)
+![design-searching](https://github.com/TeerapongP/TripsProject/assets/56886497/2dfabd58-a393-4b4e-a165-f5c4fa0eaa14)
