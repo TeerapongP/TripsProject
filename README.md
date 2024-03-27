@@ -161,8 +161,3 @@ For the displaying of trip data, the minimum requirements that you have to compl
 
 In fact, this assignment can be completed within 1 - 2 days. By the way, we give the candidate 10 days to complete this assignment which started from the date you receive this assignment.
 
-
-
-![design](https://github.com/TeerapongP/TripsProject/assets/56886497/9fb16113-ba6f-4104-ba15-104dd1ab2ebd)
-![design-searching](https://github.com/TeerapongP/TripsProject/assets/56886497/a8daf63b-9a2f-4fd9-b5a9-fa99d3be7cad)
-
