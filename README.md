@@ -1,5 +1,4 @@
-![design](https://github.com/TeerapongP/TripsProject/assets/56886497/d44fa664-46d2-4713-8b16-b53f8b7a7ae3)# Frontend Assignment
-
+# Frontend Assignment
 This is an assignment for Software Engineer, Frontend candidate. The candidate should keep in mind about the following 3 rules below during the period of completing assignment, because we believe that software development is not only finished by completing all requirements, but it should be good for user and the best for long term maintenance in the future.
 
 ## 3 Rules for Doing Great in this assignment
